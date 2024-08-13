@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<!-- 
+	JS의 자료형(data type) : https://www.w3schools.com/js/js_datatypes.asp
+	
+	number
+	string
+	boolean
+	array
+	object
+	function
+	undefined
+	
+	JS의 자료형(타입) 은 가변적(dynamic) 하다.
+	
+ -->
+
+<body>
+  <script>
+    function wrType(desc, c) {
+      document.write(desc + " " + c + " [" + typeof c + "]<br>");
+    }
+  </script>
+
+  <script>
+    let x;  // 선언만 하고 초기화 안하면 ,undefined
+    wrType("x = ", x);
+
+    x = 'Javascript';
+    wrType("x = ", x);
+
+    x = 5;
+    wrType("x = ", x);
+
+    x = 3.14;
+    wrType("x = ", x);
+
+    x = true;   // true, false
+    wrType("x = ", x);
+
+    x = [10, 20, 30];   // array (배열)
+    wrType("x = ", x);
+
+    wrType("x.length = ", x.length);  // 배열 원소의 개수
+
+    let i = 0;
+    while (i < x.length) {
+      wrType(`x[${i}] = `, x[i]);  // f''
+      i++;
+    }
+
+    wrType('x[3] = ', x[3]);  // 없는 index 원소값? undefined.
+
+    // for ~ of 사용해서 배열의 '값' 순환 
+    for (v of x) {
+      wrType('v =', v);
+    }
+
+    document.write('<hr>');
+    // object 타입
+    // {property:value, property:value, ....}
+
+    x = { firstName: "John", lastName: "Doe" };
+    wrType("x =", x);
+    wrType("x.firstName =", x.firstName);
+    wrType("x['firstName'] =", x['firstName']);
+    wrType("x.age =", x.age);  // 없는 key 값은 undefined
+
+    // Object.keys(object)   :  key 들만 추출
+    // Object.values(object)  : value 들만 추출
+    // Object.entries(object)  : [key, value] 들을 추출
+    document.write("<hr>");
+    for (key of Object.keys(x)) {
+      wrType('key =', key);
+    }
+
+    document.write("<hr>");
+    for (v of Object.values(x)) {
+      wrType('v =', v);
+    }
+
+    document.write("<hr>");
+    for (e of Object.entries(x)) {
+      wrType('e =', e);
+      wrType('e[0] =', e[0]);
+      wrType('e[1] =', e[1]);
+    }
+
+    document.write('<hr>');
+    x = undefined;
+    wrType('x = ', x);
+
+    x = "10" + 10;   // string + number => number 가 string 으로 변환된뒤 문자열 연결 연산 
+    wrType('x = ', x);
+
+    x = "10" * 10;   // 100(number), string "10" 이 number 10 으로 변환된뒤 산술연산!!
+    wrType('x = ', x);
+
+    // NaN : Not a Number
+    x = "a" * 10;  // * 결과는 산술연산 결과(number)이어야 하지만, 연산이 불가능한 경우. 
+    wrType('x = ', x);
+
+    x = 10 / 0;
+    wrType('x = ', x);
+
+    // null
+    x = null;
+    wrType('x = ', x);
+
+    document.write('<hr>');
+    x = (10 > 5);
+    wrType('x = ', x);
+    x = (10 == 10);
+    wrType('x = ', x);
+    x = (10 == "10");   // == 연산자는 '값' 만 비교.
+    wrType('x = ', x);
+    x = (10 === "10");   // === 연산자는 '값' 뿐 아니라 '타입'도 비교.
+    wrType('x = ', x);
+
+    // !=, !=== 
+
+    document.write("<hr>");
+
+    x = {
+      name: "Kim",
+      age: 34,
+      score: [94, 35, 79],
+    };
+    wrType('x = ', x);
+    wrType('x.name = ', x.name);
+    wrType('x.age = ', x.age);
+    wrType('x.score = ', x.score);
+    wrType('x.score[1] = ', x.score[1]);
+
+  </script>
+
+  <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>
