@@ -131,12 +131,22 @@
       name: "Kim",
       age: 34,
       score: [94, 35, 79],
+
+      getTotal: function(){
+        let sum = 0;
+        for(i of this.score){
+          sum += i;
+        }
+        return sum;
+      },
     };
     wrType('x = ', x);
     wrType('x.name = ', x.name);
     wrType('x.age = ', x.age);
     wrType('x.score = ', x.score);
     wrType('x.score[1] = ', x.score[1]);
+    wrType('x.getTotal = ', x.getTotal);
+    wrType('x.getTotal() = ', x.getTotal());
 
   </script>
 
