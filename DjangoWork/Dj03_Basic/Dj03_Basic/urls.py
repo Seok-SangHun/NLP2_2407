@@ -20,5 +20,7 @@ from django.urls import path, include
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("params/", include('params.urls')),
+    path('ages/', include('ageapp.urls')),
+    path('ex/', include('exapp.urls')),
     path('', include('user.urls')),   # 위의 admin/ 외의 경로로 request 가 들어오면 user/urls.py 가 처리(위임)한다.
 ]

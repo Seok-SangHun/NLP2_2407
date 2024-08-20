@@ -45,3 +45,17 @@ def page2(request):
   age: {age}<br>
 ''')
 
+def article1(request, year):   # URL 에 담긴 year 값을 받아온다.
+	print('article 1:', request.path, year, type(year))
+	return HttpResponse(f'''
+		<h2>article 1: {year}</h2>
+		2000년 이후? : {int(year) > 2000} <br>
+''')
+      
+def article2(request, year, month):
+	print('article 2:', request.path, year, type(year), month, type(month))
+	return HttpResponse(f'''
+		<h2>article 2: {year}년 {month}월</h2>
+		2000년 이후? : {int(year) > 2000} <br>
+''')
+
