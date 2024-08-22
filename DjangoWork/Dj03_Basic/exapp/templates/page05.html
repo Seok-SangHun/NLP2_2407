@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+</head>
+<body>
+    <h1>{{ title }}</h1>
+    <p>{{ summary }}</p>
+    <hr>
+
+    <h5>Dict lookup</h5>
+    <p>{{ album }}</p>  {# dict 의 __str__ 값 #}
+    <ul>
+        <li>{{ album.song }}</li>
+        <li>{{ album.artist }}</li>
+        <li>{{ album.xxx }}</li>  {# 없는 key 는 렌더링 안함 #}
+    </ul>
+    <hr>
+
+    <h5>List-index lookup</h5>
+    <p>{{ points }}</p>
+    <ul>
+        <li>{{ points.0 }}</li>
+        <li>{{ points.1 }}</li>
+        <li>{{ points.2 }}</li>
+        <li>{{ points.10 }}</li>  {# 없는 index 는 렌더링 안함 #}
+    </ul>
+    <hr>
+
+    <h5>Attr. lookup</h5>
+    <p>{{ advisor }}</p>  {# User 의 __str__ 값 #}
+    <ul>
+        <li>{{ advisor.name }}</li>
+        <li>{{ advisor.info }}</li>
+        <li>{{ advisor.xxx }}</li>  {# 없는 속성은  렌더링 안함 #}
+    </ul>
+
+    <hr>
+    {# members 의 5600 값을 렌더링 해보자#}
+    <p>{{ members.2.info.price.0 }}</p>
+
+
+
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
