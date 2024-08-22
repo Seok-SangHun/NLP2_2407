@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>{{ title }}</h1>
+    <h3>{{ summary }}</h3>
+    <hr>
+
+    <h4>if</h4>
+    {% comment %}
+    구문: if 변수
+    변수가 '존재'하며, 'not empty' 이어야 <<true>> 다
+        ==, !=, <,>, <=,>=, in, not in, is, and, or, is not 연산자 사용 가능
+                {% endcomment %}
+
+                {% if team_kim %}
+                <p>Number of team_kim: {{ team_kim|length }}</p>
+                {% endif %}
+
+                {% if team_park %}
+                <p>Number of team_park: {{ team_park|length }}</p>
+                {% else %}
+                <p>team_park 선수가 없습니다</p>
+                {% endif %}
+
+                {% if team_kim and short_track %}
+                <p>team_kim 과 short_track 둘다 존재합니다</p>
+                {% endif %}
+
+                {% if "jang" in sentence %}
+                <p>{{ sentence }} 안에 "jang" 이 있습니다</p>
+                {% endif %}
+
+                <hr>
+                <h1>Tag: for</h1>
+
+                <h4>for ~ in</h4>
+                <ul>
+                    {% for name in team_kim %}
+                    <li>{{ name }}</li>
+                    {% endfor %}
+                </ul>
+                <hr>
+
+                <h4>for, unpacking</h4>
+                <table>
+                    {% for x, y in points %}
+                    <tr>
+                        <td>{{ x }}</td>
+                        <td>{{ y }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <hr>
+                <h4> for, dict</h4>
+                <table>
+                    {% for key, value in info.items %}
+                    <tr>
+                        <td>{{ key }}</td>
+                        <td>{{ value }}</td>
+                    </tr>
+                    {% endfor %}
+                </table>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

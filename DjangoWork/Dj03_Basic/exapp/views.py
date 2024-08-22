@@ -99,9 +99,44 @@ class User:
     def __str__(self):
         return f'User 의 __str__ 값입니다 {self.name}-{self.info}'
 
+''' -----------------------------------------------------------------------------
+태그 (Tag)
+구문: {% ... %}
+태그는 다양한 렌더링 동작을 제공한다.
+  ex) contents 삽입
+  ex) if, for  와 같은 제어문 구조 
+  ex) database  객체 접근
+  ex) 다른 템플릿 태그에 접근
 
+https://docs.djangoproject.com/ko/4.0/topics/templates/#tags
+
+built-in tags: django 에서 기본적으로 제공되는 태그들
+   https://docs.djangoproject.com/ko/4.0/ref/templates/builtins/#ref-templates-builtins-tags
+custom tags : 
+   https://docs.djangoproject.com/ko/4.0/howto/custom-template-tags/#howto-writing-custom-template-tags
+'''
+
+# if 태그
+# https://docs.djangoproject.com/ko/4.0/ref/templates/builtins/#if
 def func06(request):
-    return
+    context = {
+        "title": 'Tag: if',
+        "summary": 'if 태그',
+
+        "sentence": "Hello Django Framework!",
+
+        "team_kim": ['김은정', '김선영', '김초희', '김경애', '김영미'],
+        "short_track": ['황대헌', '최민정', '이준서'],
+
+        "points": [(10, -1), (20, -2), (30, -3), (40, -4)],
+
+        "info" : {"매물": '42평 4룸', "보증금": 2000, "세": 140},
+
+    }
+    context['fruits'] = ['apple', 'banana', '']
+
+    return render(request, 'page06.html', context)
+
 def func07(request):
     return
 def func08(request):
