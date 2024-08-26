@@ -15,8 +15,15 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.shortcuts import redirect
 
 urlpatterns = [
     path("admin/", admin.site.urls),
+    
+    # board/... 으로 요청이 들어오면, board 앱의 urls.py 로 처리 위임
+    path('board/', include('board.urls')),
+
+    # empty path 는 /board/list/ 로 redirect 하기
+    path('', lambda request: redirect('/board/list')),
 ]

@@ -2,7 +2,7 @@ import sqlite3
 import logging
 
 class Database:
-  def __init__(self, db_file):
+  def __init__(self, db_file = 'board.sqlite3'):
     self.db_file = db_file  # sqlite3 데이터베이스 파일명
     self.conn = None  # 데이터 베이스 connection 객체.  이를 통해 query 수행 
 
