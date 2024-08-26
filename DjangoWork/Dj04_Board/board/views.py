@@ -63,3 +63,30 @@ def update(request, id=None):
         conn.close()
 
         return render(request, 'update.html', {'post': post})  # 글 수정 폼
+    elif request.method == "POST":  # 글 수정 완료
+        id = int(request.POST['id'])
+        subject = request.POST['subject']
+        content = request.POST['content']
+
+        conn = Database()
+        conn.connect()
+        # UPDATE 글 수정
+        conn.execute("UPDATE board SET subject='%s', content='%s' WHERE id = %d" % (subject, content, id))
+        conn.close()
+
+        return render(request, 'updateOk.html', {'result': 1, 'post': {"id": id}})
+    
+
+def delete(request):
+    print(f'{request.path} {request.method} 요청')
+
+    if request.method == "POST":
+        id = int(request.POST['id'])    
+
+        conn = Database()
+        conn.connect()
+        # DELETE 삭제
+        conn.execute("DELETE FROM board WHERE id = %d" % (id))
+        conn.close()
+
+        return render(request, 'deleteOk.html', {'result': 1})
